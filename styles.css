@@ -1,0 +1,90 @@
+body {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    user-select: none;
+}
+
+#ball-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#ball {
+    background: radial-gradient(circle, #000 60%, #333 100%);
+    border-radius: 50%;
+    width: 90vmin; /* Scales dynamically with viewport */
+    height: 90vmin; /* Matches width for circular shape */
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#eight-circle {
+    position: absolute;
+    width: 35%; /* Scales proportionally with the ball */
+    height: 35%;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#eight {
+    font-size: 15vmin; /* Scales with viewport size */
+    font-weight: bold;
+    color: black;
+    z-index: 3;
+}
+
+#triangle {
+    position: absolute;
+    width: 90%; /* Adjusted size relative to the ball */
+    height: 70%; /* Adjusted size relative to the ball */
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 138, 138, 0.9);
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 10%; /* Add padding to push text lower */
+    clip-path: polygon(50% 0%, 10% 90%, 90% 90%);
+}
+
+#answer {
+    position: absolute; /* Absolute positioning to place it on top of the triangle */
+    font-size: 4vmin; /* Responsive scaling */
+    color: white;
+    text-align: center; /* Centers text horizontally */
+    word-wrap: break-word; /* Breaks text onto the next line if too long */
+    padding: 10px; /* Adds padding around the text */
+    max-width: 80%; /* Adjusts the width to prevent overflow */
+    top: 50%; /* Centers vertically inside the ball */
+    left: 50%; /* Centers horizontally inside the ball */
+    transform: translate(-50%, -50%); /* Perfect vertical and horizontal centering */
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-5vmin, 5vmin) rotate(-10deg); }
+    50% { transform: translate(5vmin, -5vmin) rotate(10deg); }
+    75% { transform: translate(-5vmin, 5vmin) rotate(-10deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
